@@ -6,7 +6,7 @@ import store from "./store";
 
 import Login from "./views/auth/login";
 import Logout from "./views/auth/logout";
-
+import Error from "./views/errors/404";
 import Order from "./views/pages/order";
 import Product from "./views/pages/product";
 
@@ -36,6 +36,12 @@ const router = new Router({
       name: "product-list",
       component: Product,
     },
+    {
+      path: "/product-list",
+      name: "product-list",
+      component: Product,
+    },
+    { path: "*", component: Error }
   ],
 });
 

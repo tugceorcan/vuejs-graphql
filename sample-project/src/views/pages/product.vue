@@ -125,6 +125,7 @@
 <script>
 import store from "../../store";
 import AppHeader from "@/components/app-header.vue";
+import router from "@/router";
 
 export default {
   name: "product-list",
@@ -220,7 +221,11 @@ export default {
     },
   },
   mounted() {
-    this.getProducts();
+    if(store.state.token && store.state.token != ""){
+      this.getProducts();
+    }else{
+      router.push({name:"app-login"})
+    }
   },
   created() {},
 };

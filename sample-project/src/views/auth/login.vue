@@ -104,7 +104,11 @@ export default {
     },
    
   },
-  mounted() {},
+  mounted() {
+    var token = localStorage.getItem("token");
+    if(token && token != "")
+      this.$router.push({ name: "product-list" });
+  },
   created() {},
 };
 </script>

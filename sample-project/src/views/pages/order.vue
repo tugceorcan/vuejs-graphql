@@ -138,6 +138,7 @@
 <script>
 import store from "../../store";
 import Vue from "vue";
+import router from "@/router";
 import AppHeader from "@/components/app-header.vue";
 export default {
   name: "order-list",
@@ -254,7 +255,12 @@ export default {
     },
   },
   mounted() {
-    this.getOrders();
+    if(store.state.token && store.state.token != ""){
+this.getOrders();
+    }else{
+      router.push({name:"app-login"})
+    }
+    
   },
   created() {},
 };
