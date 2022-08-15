@@ -6,8 +6,22 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     user: {},
-    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkX2F0IjoiMjAyMi0wOC0xNFQxMToxNjoxNS41MjE3Nzk2MTRaIiwidXNlcl9pZCI6OTMxfQ.GFdnR7VudYH3-UnmSbgSu1OVN584ZIGbLliDmlUM88o",
+    token: "",
   },
   mutations: {},
-  actions: {},
+  actions: {
+    logout(){
+      try {
+        var request = {
+          query: `mutation {logout}`,
+        };
+        Vue.axios.post("/graphql", request).then((response) => {
+         this.state.token="";
+         this.state.user={};
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
 });

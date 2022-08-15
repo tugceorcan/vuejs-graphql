@@ -1,5 +1,7 @@
 <template>
-  <v-app>
+ 
+  <v-app style="margin-top:0 !important">
+    
     <router-view></router-view>
   </v-app>
 </template>

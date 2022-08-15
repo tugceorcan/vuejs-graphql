@@ -10,7 +10,7 @@ const _axios = axios.create({
 
 _axios.interceptors.request.use(
   (config) => {
-    if (config.url != "login") {
+    if (store.state.token && store.state.token != "") {
       config.headers["Authorization"] = `Bearer ${store.state.token}`;
     }
     return config;
